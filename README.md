@@ -5,6 +5,8 @@ This is a single page app using [ReactJS](https://reactjs.org) CRA and and using
 - each gist item listed should have a badge (languages used)
 - how many times this gist has been forked, if any
 
+Here is the [demo site](https://octogist.netlify.app/)
+
 The main layout of the app will have a form in the center of the page, something extremely simple like an input and a button. When you search for a valid user, cards of different gists will display underneath the user or it will return that no gists were found in case the user exists but has not written any gists. Here is a quick mockup:
 
 ![mockup](https://user-images.githubusercontent.com/17005317/115968575-9ec77700-a549-11eb-9501-cd6f76cd74ec.png)
