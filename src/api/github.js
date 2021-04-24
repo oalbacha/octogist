@@ -3,11 +3,6 @@ const octokit = new Octokit({
   auth: process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN,
 })
 
-const fetchUser = async function (username) {
-  const promise = await octokit.rest.users.getContextForUser({username})
-  return promise
-}
-
 const fetchUserGists = async function (username) {
   // Create a new AbortController instance for this request
   const controller = new AbortController()
@@ -31,7 +26,6 @@ const fetchGistForks = async function (gist_id) {
 }
 
 export {
-  fetchUser,
   fetchUserGists,
   fetchGistForks
 }
