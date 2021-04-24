@@ -1,0 +1,32 @@
+.gist-tags {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.tags-title {
+  letter-spacing: 2px;
+  color: #333;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag {
+  margin: 5px;
+  padding: 0.3rem 0.6rem;
+  border-radius: 1rem;
+  font-size: 0.7rem;
+  color: #333;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background-color: #E0E0E0;
+}

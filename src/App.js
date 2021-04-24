@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react'
+import {ErrorBoundary} from 'react-error-boundary'
+import Form from './components/Form'
+import GistData from './components/GistData'
+import {ErrorFallback} from './api/config'
+import {QueryClient, QueryClientProvider,} from 'react-query'
+import './App.css'
+
+// Create a client
+const queryClient = new QueryClient()
 
 function App() {
+  const [username, setUsername] = React.useState('')
+
+  function handleSubmit(newUsername) {
+    setUsername(newUsername)
+  }
+
+  function handleReset() {
+    setUsername('')
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <QueryClientProvider client={queryClient}>
+      <main className="app">
+        <Form username={username} onSubmit={handleSubmit} />
+        <div className="user-gists">
+          <ErrorBoundary
+            FallbackComponent={ErrorFallback}
+            onReset={handleReset}
+            resetKeys={[username]}
+          >
+            <GistData username={username} />
+          </ErrorBoundary>
+        </div>
+      </main>
+    </QueryClientProvider>
+  )
 }
 
-export default App;
+export default App

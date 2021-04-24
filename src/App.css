@@ -1,38 +1,111 @@
-.App {
+.app .totally-centered {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  max-width: 45rem;
+  margin: auto;
+}
+
+.user-gists {
+  margin-top: 2rem;
+  background-color: #eee;
+  height: 30rem;
+  border: 2px solid #eee;
+  border-radius: 4px;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.user-form label {
+  font-size: 20px;
+  font-weight: 800;
   text-align: center;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.user-form a {
+  color: #cc0000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.user-form a:focus,
+.user-form a:hover,
+.user-form a:active {
+  color: #8a0000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.user-form input {
+  line-height: 2;
+  font-size: 16px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: none;
+  border-radius: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #eee;
+  width: 300px;
+}
+
+button {
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid #ff0000;
+  background-color: #cc0000;
+  cursor: pointer;
+  padding: 8px 10px;
+  color: #eee;
+  border-radius: 3px;
+}
+
+button:disabled {
+  border-color: #dc9494;
+  background-color: #f16161;
+  cursor: unset;
+}
+
+button:hover:not(:disabled),
+button:active:not(:disabled),
+button:focus:not(:disabled) {
+  border-color: #cc0000;
+  background-color: #8a0000;
+}
+
+.user-form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.user-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.user-form input {
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button.invisible-button {
+  border: none;
+  padding: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: inherit;
+  background-color: transparent;
+  color: #000;
+}
+
+button.invisible-button:hover,
+button.invisible-button:active,
+button.invisible-button:focus {
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
 }

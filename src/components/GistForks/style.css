@@ -1,0 +1,26 @@
+.gist-forks {
+  margin: 1rem 0;
+}
+
+.forks-title {
+  letter-spacing: 2px;
+  color: #333;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.fork {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.fork-avatar {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid rgb(219, 216, 216);
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 5px;
+}

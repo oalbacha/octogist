@@ -1,0 +1,29 @@
+.gist {
+  border: 2px solid;
+  box-shadow: 0px 4px 4px rgba(61, 61, 61, 0.15);
+  border-radius: 12px;
+  line-height: 1.5;
+  padding: 1rem;
+  background: #fafafa;
+  height: 28rem;
+  margin-bottom: 1rem;
+}
+
+.gist-title {
+  letter-spacing: 2px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.gist-title a {
+  text-decoration: none;
+  color: #333;
+}
+
+.gist-title a:hover {
+  text-decoration: underline;
+}
+
+.gist:hover {
+  box-shadow: 0px 4px 4px rgba(61, 61, 61, 0.5);
+}

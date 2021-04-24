@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# OctoGist - A GitHub Gist API Client to search users and their public gists
+This is a single page app using [ReactJS](https://reactjs.org) CRA and and using the [GitHub](http://github.com) [Gist](http://gist.github.com) API. This app is simple and lets you search the GitHub users and do the following:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- list all available gists for the searched user
+- each gist item listed should have a badge (languages used)
+- how many times this gist has been forked, if any
 
-## Available Scripts
+The main layout of the app will have a form in the center of the page, something extremely simple like an input and a button. When you search for a valid user, cards of different gists will display underneath the user or it will return that no gists were found in case the user exists but has not written any gists. Here is a quick mockup:
 
-In the project directory, you can run:
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1d4342c0-3e5c-41cb-8a41-cb3e335af78b/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1d4342c0-3e5c-41cb-8a41-cb3e335af78b/Untitled.png)
 
-### `yarn start`
+When I started thinking about how to tackle the project, I first visualized the UI (user interface) and what that was going to look like. then I started thinking about the way I will hit the [GitHub API](https://docs.github.com/en/rest/reference/gists) endpoints and from which React components and at what stage. What React hooks am I going to use and what are the dependencies that I need to correctly hit the endpoints and get the data that I needed? I ended up using a library called [react-query](https://react-query.tanstack.com/) which gives us a nice UX/DX experience enhancing the browser cache to deal with the API fetch functions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## The UI
+The UI is simple. It consists of two to four components in total to make up this app.
+1. the form
+2. the gist data
+3. the gist
+4. the gist tags (what programming languages it includes)
+5. the forks (how many times was this gist forked, if any)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### The Component Hierarchy Structure
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/37173529-38be-475d-8ef6-bb59c1eba9de/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/37173529-38be-475d-8ef6-bb59c1eba9de/Untitled.png)
 
-### `yarn test`
+Let me briefly describe what each component is doing.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### The Form
+The form included a label which was styled to look like a main title, an example list of users to select from. I've included some of the famous celebrities of the web industry including myself of course 😙. A text input where you can search for the desired GitHub user and finally a button to submit the form.
 
-### `yarn build`
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d8dd7de-83b4-41d2-a642-5a10ce98c6cb/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d8dd7de-83b4-41d2-a642-5a10ce98c6cb/Untitled.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### The Gist Data Component
+decides what data should be rendered to the page based on what state we have at hand at the current moment
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### The Gist Component
+Renders the actual gist card with its information. We have a title which consists of the name of the first file of the gist combined with the name of the user we are searching for
+### The Tags
+what languages were used in the file list of the gist at hand
+### The Forks
+if any, who forked this gist with a link to the actual forks
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## In conclusion
+I've added some simple tests using jest and react-testing-library to make sure we have confidence of things running in the right way and not braking. Validation with prop types and error handling using the error boundary library. This project has been fun to work on and I am looking forward to meeting you to answer any further questions you might have.
