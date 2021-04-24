@@ -7,7 +7,7 @@ This is a single page app using [ReactJS](https://reactjs.org) CRA and and using
 
 The main layout of the app will have a form in the center of the page, something extremely simple like an input and a button. When you search for a valid user, cards of different gists will display underneath the user or it will return that no gists were found in case the user exists but has not written any gists. Here is a quick mockup:
 
-[mockup.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1d4342c0-3e5c-41cb-8a41-cb3e335af78b/Untitled.png)
+![mockup.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1d4342c0-3e5c-41cb-8a41-cb3e335af78b/Untitled.png)
 
 When I started thinking about how to tackle the project, I first visualized the UI (user interface) and what that was going to look like. then I started thinking about the way I will hit the [GitHub API](https://docs.github.com/en/rest/reference/gists) endpoints and from which React components and at what stage. What React hooks am I going to use and what are the dependencies that I need to correctly hit the endpoints and get the data that I needed? I ended up using a library called [react-query](https://react-query.tanstack.com/) which gives us a nice UX/DX experience enhancing the browser cache to deal with the API fetch functions.
 
