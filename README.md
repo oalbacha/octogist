@@ -7,7 +7,7 @@ This is a single page app using [ReactJS](https://reactjs.org) CRA and and using
 
 The main layout of the app will have a form in the center of the page, something extremely simple like an input and a button. When you search for a valid user, cards of different gists will display underneath the user or it will return that no gists were found in case the user exists but has not written any gists. Here is a quick mockup:
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1d4342c0-3e5c-41cb-8a41-cb3e335af78b/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1d4342c0-3e5c-41cb-8a41-cb3e335af78b/Untitled.png)
+![mockup.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1d4342c0-3e5c-41cb-8a41-cb3e335af78b/Untitled.png)
 
 When I started thinking about how to tackle the project, I first visualized the UI (user interface) and what that was going to look like. then I started thinking about the way I will hit the [GitHub API](https://docs.github.com/en/rest/reference/gists) endpoints and from which React components and at what stage. What React hooks am I going to use and what are the dependencies that I need to correctly hit the endpoints and get the data that I needed? I ended up using a library called [react-query](https://react-query.tanstack.com/) which gives us a nice UX/DX experience enhancing the browser cache to deal with the API fetch functions.
 
@@ -20,14 +20,14 @@ The UI is simple. It consists of two to four components in total to make up this
 5. the forks (how many times was this gist forked, if any)
 
 ### The Component Hierarchy Structure
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/37173529-38be-475d-8ef6-bb59c1eba9de/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/37173529-38be-475d-8ef6-bb59c1eba9de/Untitled.png)
+![componentsHierarchy.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/37173529-38be-475d-8ef6-bb59c1eba9de/Untitled.png)
 
 Let me briefly describe what each component is doing.
 
 ### The Form
 The form included a label which was styled to look like a main title, an example list of users to select from. I've included some of the famous celebrities of the web industry including myself of course 😙. A text input where you can search for the desired GitHub user and finally a button to submit the form.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d8dd7de-83b4-41d2-a642-5a10ce98c6cb/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d8dd7de-83b4-41d2-a642-5a10ce98c6cb/Untitled.png)
+![form.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d8dd7de-83b4-41d2-a642-5a10ce98c6cb/Untitled.png)
 
 ### The Gist Data Component
 decides what data should be rendered to the page based on what state we have at hand at the current moment
